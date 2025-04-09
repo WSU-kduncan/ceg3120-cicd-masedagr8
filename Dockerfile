@@ -1,8 +1,6 @@
-FROM python:3
+FROM masedagr80ne/ceg3120
 
-# example if we used full ubuntu as a base image
-#RUN apt update && apt install -y python3 python3-pip
-# installs, libraries, stuff you code needs
-COPY . /project
+COPY 
+COPY angular-site
 
 CMD ["python", "/project/hello.py"]
