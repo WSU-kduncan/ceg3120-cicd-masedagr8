@@ -59,12 +59,21 @@ CMD ["ng", "serve", "--host", "0.0.0.0"]"
       - validate from host side "localhost:4200"
 5. Working with your DockerHub Repository
     - How to create a public repo in DockerHub
+    -"once you have an account go to docker hub and in repository click create repository"
     - How to create a PAT for authentication (note recommended scope for this task)
-      - **DO NOT** add your DockerHub PAT to your documentation 
+    -"go to docker account center go down to personal access token and make one, dont forget not to lose token(ive have many tokens now:)" "make sure token has read and write priv" 
     - How to authenticate with DockerHub via CLI using DockerHub credentials
+    -"docker login --username masedagr80ne" "your username"
+    -instead of password paste you PAT
       - **DO NOT** add your DockerHub PAT to your documentation 
     - How to push container image to your DockerHub repository
+    "docker push masedagr80ne/ceg3120 masedagr80ne/ceg3120"
+    "docker push masedagr80ne/ceg3120"
+    
     - **Link** to your DockerHub repository for this project
+   "https://hub.docker.com/repository/docker/masedagr80ne/ceg3120/general"
+
+
 
 steps to setup Run a container with the node:18-bullesye container image and configure it to run and server the Angular application in angular-site
 
@@ -84,9 +93,10 @@ ng serve --host 0.0.0.0
 
 
 cite
+used i think i used something from almost all the links you gave us.
 
 to get docker working on and EC2 instance i used https://docs.docker.com/engine/install/ubuntu/ 
 I just followed to commands to install in on an EC2 instance of ubuntu.
 
-ask chatgbt for example of from command in dockerfile
+ask chatgbt for examples of from and CDM command in dockerfile, "can I get examples on how to use FROM and CDM in a Dockerfile and expain the different parts of the commands" 
 
