@@ -9,6 +9,7 @@ docker run -it -p 4200:4200 -v /home/ubuntu//ceg3120-cicd-masedagr8/angular-site
 
 cd angular/
 
+idk what change this doesnt seem to be needed anymore
 cd wsu-hw-ng-main/
 
 npm install -g @angular/cli
