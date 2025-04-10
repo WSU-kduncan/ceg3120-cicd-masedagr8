@@ -1,8 +1,8 @@
 FROM node:18-bullesye
 
-WORKDIR /usr/src/app
+WORKDIR /angula/angular-site/angular-bird/wsu-hw-ng-main
 
-COPY . /usr/src/app
+COPY . .
 
 RUN npm install -g @angular/cli
 
