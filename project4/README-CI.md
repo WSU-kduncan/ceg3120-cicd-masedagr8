@@ -1,15 +1,38 @@
 1. Docker Setup
-    - How to install Docker for your OS
-    - Additional dependencies based on your OS
-      - Ex. Windows systems need WSL2
-    - How to confirm Docker is installed and your system can successfully run containers
+   -commands to install docker on EC2 instance ubuntu
+   -for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+   -sudo apt-get update
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+   -sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   -to verify successful install run "sudo docker run hello-world"
+
 2. Manually Setting up a Container
     - How to run a container to test the Angular application
-      - Include explanation of flags / arguments used
-    - Commands needed internal to the container to get additional dependencies
-    - Commands needed internal to the container to run the application
+    - docker run -it -p 4201:4201 --name madeWithDockerFile node:18-bullseye bash
+      - -it -t allocates a pseudo-tty and attach to the standard input of the container
+          -i (interactive) keep stdin open even if not attached
+      - -p 4201:4201
+          - expose container port to host port
+      - --name madeWithDockerFile
+            -set name of container
+      - node:18-bullseye set image to 18-bullseye
+        
+      -inside the container
+      -cd angular/
+
+      -cd wsu-hw-ng-main/
+
+      -npm install -g @angular/cli
+
+      -npm install
+
+      -ng serve --host 0.0.0.0
+
     - How to verify that the container is successfully serving the Angular application
-      - validate from container side
+      - validate from container side 
       - validate from host side
 3. `Dockerfile` & Building Images
     - Summary / explanation of instructions written in the `Dockerfile`
