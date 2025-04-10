@@ -11,19 +11,19 @@
 
 2. Manually Setting up a Container
     - How to run a container to test the Angular application
-    - docker run -it -p 4201:4201 --name madeWithDockerFile node:18-bullseye bash
+    -  docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash
       - -it -t allocates a pseudo-tty and attach to the standard input of the container
           -i (interactive) keep stdin open even if not attached
       - -p 4201:4201
           - expose container port to host port
       - --name madeWithDockerFile
             -set name of container
+        - -v host_folder:container_folder
+           -path to folder i want and the folder i want it in
       - node:18-bullseye set image to 18-bullseye
         
       -inside the container
       -cd angular/
-
-      -cd wsu-hw-ng-main/
 
       -npm install -g @angular/cli
 
@@ -31,16 +31,18 @@
 
       -ng serve --host 0.0.0.0
 
-    - How to verify that the container is successfully serving the Angular application
-      - validate from container side 
-      - validate from host side
+    - verify that the container isserving the Angular
+      - validate from container side "curl 4200"
+      - validate from host side curl "localhost:4200"
 3. `Dockerfile` & Building Images
     - Summary / explanation of instructions written in the `Dockerfile`
     - How to build an image from the repository `Dockerfile`
+    - 
     - How to run a container that will serve the Angular application from the image built by the `Dockerfile`
+    - "docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash" (in theory it should use the Dockfile when building) 
     - How to verify that the container is successfully serving the Angular application
-      - validate from container side
-      - validate from host side
+      - validate from container side "curl 4200"
+      - validate from host side "localhost:4200"
 5. Working with your DockerHub Repository
     - How to create a public repo in DockerHub
     - How to create a PAT for authentication (note recommended scope for this task)
