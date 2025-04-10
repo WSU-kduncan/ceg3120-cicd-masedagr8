@@ -35,9 +35,23 @@
       - validate from container side "curl 4200"
       - validate from host side curl "localhost:4200"
 3. `Dockerfile` & Building Images
-    - Summary / explanation of instructions written in the `Dockerfile`
-    - How to build an image from the repository `Dockerfile`
-    - 
+    - from is node:18-bullesye the image i want to use
+    - workdir is the path to where angular is down loaded
+    - copy copies everything in the current directory on host into the current working directory
+    - the two run command should do the same they do in the command line install angular and npm install
+    - cmd is the command to serve it broken up
+    - my Dockerfile
+"FROM node:18-bullesye
+
+WORKDIR /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main
+
+COPY . .
+
+RUN npm install -g @angular/cli
+
+RUN npm install
+
+CMD ["ng", "serve", "--host", "0.0.0.0"]"
     - How to run a container that will serve the Angular application from the image built by the `Dockerfile`
     - "docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash" (in theory it should use the Dockfile when building) 
     - How to verify that the container is successfully serving the Angular application
