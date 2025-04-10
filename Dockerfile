@@ -1,13 +1,11 @@
 FROM node:18-bullesye
 
-WORKDIR /home/ubuntu//ceg3120-cicd-masedagr8/a
-ngular-site/angular-bird/wsu-hw-ng-main
+WORKDIR /usr/src/app
 
-RUN npm install
+COPY . /usr/src/app
 
 RUN npm install -g @angular/cli
 
-COPY angular-site
+RUN npm install
 
-CMD ["python", "/project/hello.py"]
-ng serve --host 0.0.0.0
+CMD ["ng", "serve", "--host", "0.0.0.0"]
