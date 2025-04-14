@@ -1,7 +1,8 @@
 FROM node:18-bullesye
 
-WORKDIR angula
 COPY . .
+
+WORKDIR angula
 
 RUN npm install -g @angular/cli
 
