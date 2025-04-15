@@ -1,8 +1,8 @@
-FROM node:18-bullesye
+FROM node:18-bullseye
 
 COPY . .
 
-WORKDIR angula
+WORKDIR /angular-bird/wsu-hw-ng-main
 
 RUN npm install -g @angular/cli
 
