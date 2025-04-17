@@ -102,21 +102,36 @@ CMD ["ng", "serve", "--host", "0.0.0.0"]
 
 1. Configuring GitHub Repository Secrets:
     - How to create a PAT for authentication (note recommended scope for this task)
+      
       `Go to docker hub setting and Personal access tokens`
+      
       `click generate an access token`
+      
       `make sure it has read and write priv`
+      
       `save this token somewhere it will not show it again!!`
+      
     - How to set repository Secrets for use by GitHub Actions
+      
       `In github setting you will go to secrets and variables`
+      
       `Under actions youll add your username and token to repository secrets`
+      
       `For my workflow yaml file I made it "based on" github's docker build-puhs-action file`
+      
     - Describe the Secrets set for this project
+      
       `the secrets for this project are the username of my dockerhub and the PAT I created`
+      
 2. CI with GitHub Actions
     - Summary of what your workflow does and when it does it
+      
       `The workflow logs into dockerhub with the username and token in secrets`
+      
       `Next it installs QEMU` "from what I tell QEMU allows you to run linux on virtual machine?"
+      
       `Then we need docker buildx which i simial to docker build but allows you to build images on another machine`
+      
       `Build and push should as the name suggest should build and push container images to my DockerHub repository`
       
     - Explanation of values that need updated if used in a different repository
