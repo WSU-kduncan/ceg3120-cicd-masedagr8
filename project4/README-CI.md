@@ -149,6 +149,17 @@ named `GIT_AUTH_TOKEN` to be able to authenticate against it with Buildx
     - How to test that your workflow did its tasking
     - How to verify that the image in DockerHub works when a container is run using the image
 
+## Part 3
+
+1. Continuous Integration Project Overview
+    - What is the goal of this project
+    - What tools are used in this project and what are their roles
+    - Diagram of project
+    - [If applicable] What is **not working** in this project
+
+
+
+
 
 
 steps to setup Run a container with the node:18-bullesye container image and configure it to run and server the Angular application in angular-site
