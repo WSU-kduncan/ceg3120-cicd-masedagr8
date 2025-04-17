@@ -41,34 +41,42 @@
     - the two run command should do the same they do in the command line install angular and npm install
     - cmd is the command to serve it broken up
     - my Dockerfile
-"FROM node:18-bullesye
-
-WORKDIR /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main
+"FROM node:18-bullseye
 
 COPY . .
+
+WORKDIR /angular-bird/wsu-hw-ng-main
 
 RUN npm install -g @angular/cli
 
 RUN npm install
 
-CMD ["ng", "serve", "--host", "0.0.0.0"]"
+CMD ["ng", "serve", "--host", "0.0.0.0"]
+"
     - How to run a container that will serve the Angular application from the image built by the `Dockerfile`
-    - "docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash" (in theory it should use the Dockfile when building) 
+    - "docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash" 
     - How to verify that the container is successfully serving the Angular application
-      - validate from container side "curl 4200"
-      - validate from host side "localhost:4200"
+      - validate from container side "curl 4201"
+      - validate from host side "localhost:4201"
 
 
 .4 Working with your DockerHub Repository
     - How to create a public repo in DockerHub
+    
     -"once you have an account go to docker hub and in repository click create repository"
+    
     - How to create a PAT for authentication (note recommended scope for this task)
+    
     -"go to docker account center go down to personal access token and make one, dont forget not to lose token(ive have many tokens now:)" "make sure token has read and write priv" 
+    
     - How to authenticate with DockerHub via CLI using DockerHub credentials
+    
     -"docker login --username masedagr80ne" "your username"
+    
     -instead of password paste you PAT
-      - **DO NOT** add your DockerHub PAT to your documentation 
+      
     - How to push container image to your DockerHub repository
+    
     "docker push masedagr80ne/ceg3120 masedagr80ne/ceg3120"
     "docker push masedagr80ne/ceg3120"
     
