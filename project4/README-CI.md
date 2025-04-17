@@ -7,7 +7,7 @@
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
    -sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-   -to verify successful install run "sudo docker run hello-world"
+   -to verify successful install run `sudo docker run hello-world`
 
 2. Manually Setting up a Container
     - How to run a container to test the Angular application
@@ -41,7 +41,7 @@
     - the two run command should do the same they do in the command line install angular and npm install
     - cmd is the command to serve it broken up
     - my Dockerfile
-"FROM node:18-bullseye
+`FROM node:18-bullseye
 
 COPY . .
 
@@ -52,36 +52,37 @@ RUN npm install -g @angular/cli
 RUN npm install
 
 CMD ["ng", "serve", "--host", "0.0.0.0"]
-"
+`
     - How to run a container that will serve the Angular application from the image built by the `Dockerfile`
-    - "docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash" 
+    - `docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash` 
     - How to verify that the container is successfully serving the Angular application
-      - validate from container side "curl 4201"
-      - validate from host side "localhost:4201"
+      - validate from container side `curl 4201`
+      - validate from host side `localhost:4201`
 
 
 .4 Working with your DockerHub Repository
     - How to create a public repo in DockerHub
     
-    -"once you have an account go to docker hub and in repository click create repository"
+    -`once you have an account go to docker hub and in repository click create repository`
     
     - How to create a PAT for authentication (note recommended scope for this task)
     
-    -"go to docker account center go down to personal access token and make one, dont forget not to lose token(ive have many tokens now:)" "make sure token has read and write priv" 
+    -`go to docker account center go down to personal access token and make one, dont forget not to lose token(ive have many tokens now:)`
+    `make sure token has read and write priv` 
     
-    - How to authenticate with DockerHub via CLI using DockerHub credentials
+    - To authenticate with DockerHub via CLI using DockerHub credentials
     
-    -"docker login --username masedagr80ne" "your username"
+    -`docker login --username masedagr80ne` `your username`
     
     -instead of password paste you PAT
       
     - How to push container image to your DockerHub repository
     
-    "docker push masedagr80ne/ceg3120 masedagr80ne/ceg3120"
-    "docker push masedagr80ne/ceg3120"
+    `docker push masedagr80ne/ceg3120 masedagr80ne/ceg3120`
+    `docker push masedagr80ne/ceg3120`
     
     - **Link** to your DockerHub repository for this project
-   "https://hub.docker.com/repository/docker/masedagr80ne/ceg3120/general"
+   `https://hub.docker.com/repository/docker/masedagr80ne/ceg3120/general`
 
 
 
@@ -102,11 +103,10 @@ npm install
 ng serve --host 0.0.0.0
 
 
-cite
-used i think i used something from almost all the links you gave us.
+cite used 
 
 to get docker working on and EC2 instance i used https://docs.docker.com/engine/install/ubuntu/ 
 I just followed to commands to install in on an EC2 instance of ubuntu.
 
-ask chatgbt for examples of from and CDM command in dockerfile, "can I get examples on how to use FROM and CDM in a Dockerfile and expain the different parts of the commands" 
+ask chatgbt for examples of from and CDM command in dockerfile, `can I get examples on how to use FROM and CDM in a Dockerfile and expain the different parts of the commands` 
 
