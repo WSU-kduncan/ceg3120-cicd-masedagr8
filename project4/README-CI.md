@@ -1,3 +1,5 @@
+##Part 1
+
 1. Docker Setup
    -commands to install docker on EC2 instance ubuntu
    
@@ -96,6 +98,42 @@ CMD ["ng", "serve", "--host", "0.0.0.0"]
     - **Link** to your DockerHub repository for this project
    `https://hub.docker.com/repository/docker/masedagr80ne/ceg3120/general`
 
+## Part 2
+
+1. Configuring GitHub Repository Secrets:
+    - How to create a PAT for authentication (note recommended scope for this task)
+      `Go to docker hub setting and Personal access tokens`
+      `click generate an access token`
+      `make sure it has read and write priv`
+      `save this token somewhere it will not show it again!!`
+    - How to set repository Secrets for use by GitHub Actions
+      `In github setting you will go to secrets and variables`
+      `Under actions youll add your username and token to repository secrets`
+      `For my workflow yaml file I made it "based on" github's docker build-puhs-action file`
+    - Describe the Secrets set for this project
+      `the secrets for this project are the username of my dockerhub and the PAT I created`
+2. CI with GitHub Actions
+    - Summary of what your workflow does and when it does it
+      `The workflow logs into dockerhub with the username and token in secrets`
+      `Next it installs QEMU` "from what I tell QEMU allows you to run linux on virtual machine?"
+      `Then we need docker buildx which i simial to docker build but allows you to build images on another machine`
+      `Build and push should as the name suggest should build and push container images to my DockerHub repository`
+      
+    - Explanation of values that need updated if used in a different repository
+      
+         `According to github's docker build-puhs-action file`
+      
+      Building from the current repository automatically uses the [GitHub Token](https://docs.github.com/en/actions/security-guides/automatic-token-authentication),
+so it does not need to be passed. If you want to authenticate against another
+private repository, you have to use a [secret](https://docs.docker.com/build/ci/github-actions/secrets)
+named `GIT_AUTH_TOKEN` to be able to authenticate against it with Buildx
+
+
+    - **Link** to workflow file in your GitHub repository
+3. Testing & Validating
+    - How to test that your workflow did its tasking
+    - How to verify that the image in DockerHub works when a container is run using the image
+
 
 
 steps to setup Run a container with the node:18-bullesye container image and configure it to run and server the Angular application in angular-site
@@ -119,6 +157,8 @@ cite used
 
 to get docker working on and EC2 instance i used https://docs.docker.com/engine/install/ubuntu/ 
 I just followed to commands to install in on an EC2 instance of ubuntu.
+
+try understanding QEMU https://www.qemu.org/docs/master/
 
 ask chatgbt for examples of from and CDM command in dockerfile, `can I get examples on how to use FROM and CDM in a Dockerfile and expain the different parts of the commands` 
 
