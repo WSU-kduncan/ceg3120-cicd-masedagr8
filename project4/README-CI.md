@@ -45,6 +45,7 @@
     - verify that the container isserving the Angular
       - validate from container side "curl 4200"
       - validate from host side curl "localhost:4200"
+
 4. `Dockerfile` & Building Images
     - from is node:18-bullesye the image i want to use
     - workdir is the path to where angular is down loaded
@@ -71,23 +72,23 @@ CMD ["ng", "serve", "--host", "0.0.0.0"]
       - validate from host side `localhost:4201`
 
 
-.4 Working with your DockerHub Repository
+5. Working with your DockerHub Repository
     - How to create a public repo in DockerHub
     
-    -`once you have an account go to docker hub and in repository click create repository`
+    `once you have an account go to docker hub and in repository click create repository`
     
     - How to create a PAT for authentication (note recommended scope for this task)
     
-    -`go to docker account center go down to personal access token and make one, dont forget not to lose token(ive have many tokens now:)`
+    `go to docker account center go down to personal access token and make one, dont forget not to lose token(ive have many tokens now:)`
     `make sure token has read and write priv` 
     
     - To authenticate with DockerHub via CLI using DockerHub credentials
     
-    -`docker login --username masedagr80ne` `your username`
+    `docker login --username masedagr80ne` `your username`
     
-    -instead of password paste you PAT
+    `instead of password paste your PAT`
       
-    - How to push container image to your DockerHub repository
+    - To push container image to my DockerHub repository
     
     `docker push masedagr80ne/ceg3120 masedagr80ne/ceg3120`
     `docker push masedagr80ne/ceg3120`
@@ -98,9 +99,9 @@ CMD ["ng", "serve", "--host", "0.0.0.0"]
 
 
 steps to setup Run a container with the node:18-bullesye container image and configure it to run and server the Angular application in angular-site
-
 steps to make new image and get it running Angular application
-docker run -it -p 4200:4200 -v /home/ubuntu//ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angular node:18-bullseye bash
+
+docker run -it -p 4200:4200 -v /home/ubuntu//ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angular node:18-bullseye bash`
 
 cd angular/
 
