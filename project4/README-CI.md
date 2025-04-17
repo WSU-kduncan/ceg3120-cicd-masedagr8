@@ -57,7 +57,9 @@ CMD ["ng", "serve", "--host", "0.0.0.0"]"
     - How to verify that the container is successfully serving the Angular application
       - validate from container side "curl 4200"
       - validate from host side "localhost:4200"
-5. Working with your DockerHub Repository
+
+
+.4 Working with your DockerHub Repository
     - How to create a public repo in DockerHub
     -"once you have an account go to docker hub and in repository click create repository"
     - How to create a PAT for authentication (note recommended scope for this task)
