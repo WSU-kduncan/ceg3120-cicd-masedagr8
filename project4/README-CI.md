@@ -1,15 +1,23 @@
 1. Docker Setup
    -commands to install docker on EC2 instance ubuntu
-   -for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
-   -sudo apt-get update
+   
+   -`for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done`
+   
+   -`sudo apt-get update
+
     sudo apt-get install ca-certificates curl
+
     sudo install -m 0755 -d /etc/apt/keyrings
+
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-    sudo chmod a+r /etc/apt/keyrings/docker.asc
-   -sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+    sudo chmod a+r /etc/apt/keyrings/docker.asc`
+
+   -`sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+   
    -to verify successful install run `sudo docker run hello-world`
 
-2. Manually Setting up a Container
+3. Manually Setting up a Container
     - How to run a container to test the Angular application
     -  docker run -it -p 4201:4201 --name madeWithDockerFile -v /home/ubuntu/ceg3120-cicd-masedagr8/angular-site/angular-bird/wsu-hw-ng-main:/angula node:18-bullseye bash
       - -it -t allocates a pseudo-tty and attach to the standard input of the container
@@ -34,7 +42,7 @@
     - verify that the container isserving the Angular
       - validate from container side "curl 4200"
       - validate from host side curl "localhost:4200"
-3. `Dockerfile` & Building Images
+4. `Dockerfile` & Building Images
     - from is node:18-bullesye the image i want to use
     - workdir is the path to where angular is down loaded
     - copy copies everything in the current directory on host into the current working directory
