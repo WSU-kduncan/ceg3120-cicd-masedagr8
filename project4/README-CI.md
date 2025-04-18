@@ -143,19 +143,32 @@ so it does not need to be passed. If you want to authenticate against another
 private repository, you have to use a [secret](https://docs.docker.com/build/ci/github-actions/secrets)
 named `GIT_AUTH_TOKEN` to be able to authenticate against it with Buildx
 
-
-    - **Link** to workflow file in your GitHub repository
+    - [workflow in github repo]([https://docs.docker.com/ci-cd/github-actions/](https://github.com/WSU-kduncan/ceg3120-cicd-masedagr8/actions)
+      
 3. Testing & Validating
     - How to test that your workflow did its tasking
+      `connect to the image in the browser`
+   
     - How to verify that the image in DockerHub works when a container is run using the image
+    - `connect to the image in the browser`
 
 ## Part 3
 
 1. Continuous Integration Project Overview
     - What is the goal of this project
+      
+      `To learn how to use workflow to automate application with docker images`
+      
     - What tools are used in this project and what are their roles
+  
+      `my docker file and my workflow file are the main code used`
+      `the files use docker and github to create and run the images`
+      
     - Diagram of project
-    - [If applicable] What is **not working** in this project
+    - ![pdf of diagram](project4.pdf)
+  
+      
+    - `Its my understanding that everything works in the project :)
 
 
 
