@@ -124,7 +124,7 @@ CMD ["ng", "serve", "--host", "0.0.0.0"]
       `the secrets for this project are the username of my dockerhub and the PAT I created`
       
 2. CI with GitHub Actions
-    - Summary of what your workflow does and when it does it
+    - summary of what your workflow does and when it does it
       
       `The workflow logs into dockerhub with the username and token in secrets`
       
