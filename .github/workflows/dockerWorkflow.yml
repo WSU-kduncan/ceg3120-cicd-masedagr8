@@ -25,4 +25,4 @@ jobs:
         with:
           context: "{{defaultContext}}:project4"
           push: true
-          tags: ceg3120:latest
+          tags: masedagr80ne/ceg3120:latest
