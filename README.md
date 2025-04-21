@@ -2,9 +2,11 @@
 ceg3120-cicd-masedagr8 created by GitHub Classroom
 
 # Generating `tag`s 
+
     - How to see tags in a `git` repository
     - How to generate a `tag` in a `git` repository
     - How to push a tag in a `git` repository to GitHub
+    
 2. Semantic Versioning Container Images with GitHub Actions
     - Summary of what your workflow does and when it does it
     - Explanation of workflow steps
