@@ -12,3 +12,4 @@
 3. Testing & Validating
     - How to test that your workflow did its tasking
     - How to verify that the image in DockerHub works when a container is run using the image
+to test if workflow triggers
