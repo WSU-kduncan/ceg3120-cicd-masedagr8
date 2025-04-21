@@ -36,7 +36,7 @@ jobs:
      -
         name: Build and push
         uses: docker/build-push-action@v6
-        with:
+       with:
           context: "{{defaultContext}}:project4"
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: masedagr80ne/ceg3120:latest
