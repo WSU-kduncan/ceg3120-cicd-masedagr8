@@ -37,6 +37,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: "{{defaultContext}}:project4"
-          push: true
-          tags: masedagr80ne/ceg3120:latest
+          context: "{{defaultContext}}:project5"
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
