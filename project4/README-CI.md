@@ -165,7 +165,7 @@ named `GIT_AUTH_TOKEN` to be able to authenticate against it with Buildx
       `the files use docker and github to create and run the images`
       
     - Diagram of project
-    - ![pdf of diagram](project 4.pdf)
+    - ![pdf of diagram](project4.pdf)
   
       
     - `Its my understanding that everything works in the project :)
