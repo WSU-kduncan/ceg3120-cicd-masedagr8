@@ -43,3 +43,9 @@ ceg3120-cicd-masedagr8 created by GitHub Classroom
     - How to verify that the image in DockerHub works when a container is run using the image
       `connect to the image in the browser`
 
+      source ask chatgbt how to end listener on port 9000. "I have a webhook listening on port 9000 i want to end"
+      commands
+      sudo lsof -i :9000
+      sudo kill -9 PID
+
+
