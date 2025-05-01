@@ -1,0 +1,6 @@
+[
+  {
+    "id": "hooksid",
+    "execute-command": "/home/ubuntu/refresh-it.sh"
+  }
+]
