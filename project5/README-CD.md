@@ -1,6 +1,6 @@
 # part 1
 
-1. Generating `tag`s 
+1. Generating `tag`ss
 
     - To see tags in a `git` repository
       `Under Actions commits and tags can be viewed`
