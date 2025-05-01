@@ -146,13 +146,14 @@ ceg3120-cicd-masedagr8 created by GitHub Classroom
       
       ask chatgbt how to end listener on port 9000. "I have a webhook listening on port 9000 i want to end"
       commands
-      sudo lsof -i :9000
-      sudo kill -9 PID
+      `sudo lsof -i :9000
+      sudo kill -9 PID`
 ask chatgbt how to verify a successful payload delivery to webhook
+`
 Verify in Logs:
 On your EC2 instance, check the webhook logs to see if the event triggered the execution of your script.
 Example webhook log:
 [webhook] 2025/05/01 16:02:42 [github-webhook] incoming HTTP POST request from <GitHub_IP>
 [webhook] 2025/05/01 16:02:42 [github-webhook] github-webhook matched, triggering deploy.sh
 [webhook] 2025/05/01 16:02:42 [github-webhook] executing /home/ubuntu/ceg3120-
-
+`
