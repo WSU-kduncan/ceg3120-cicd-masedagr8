@@ -1,0 +1,12 @@
+[Unit]
+Description=Small server for creating HTTP endpoints (hooks)
+Documentation=https://github.com/adnanh/webhook/
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/webhook -nopanic -hooks /home/ubuntu/ceg3120-cicd-masedagr8/project5/deployment/hooks.json -verbose
+ExecReload=/usr/bin/webhook -k graceful
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
