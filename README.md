@@ -1,6 +1,8 @@
 # ceg3120-cicd-masedagr8
 ceg3120-cicd-masedagr8 created by GitHub Classroom
 
+# part 1
+
 1. Generating `tag`s 
 
     - To see tags in a `git` repository
@@ -42,6 +44,56 @@ ceg3120-cicd-masedagr8 created by GitHub Classroom
       `If it didnt fail check dockerhub and see if it has updated with the new 3 tags`
     - How to verify that the image in DockerHub works when a container is run using the image
       `connect to the image in the browser`
+
+# part 2
+
+1. EC2 Instance Details
+    - AMI information
+    - Instance type 
+    - Recommended volume size
+    - Security Group configuration
+    - Security Group configuration justification / explanation
+2. Docker Setup on OS on the EC2 instance
+    - How to install Docker for OS on the EC2 instance
+    - Additional dependencies based on OS on the EC2 instance
+    - How to confirm Docker is installed and that OS on the EC2 instance can successfully run containers
+3. Testing on EC2 Instance
+    - How to pull container image from DockerHub repository
+    - How to run container from image 
+      - Note the differences between using the `-it` flag and the `-d` flags and which you would recommend once the testing phase is complete
+    - How to verify that the container is successfully serving the Angular application
+      - validate from container side
+      - validate from host side
+      - validate from an external connection (your physical system)
+    - Steps to manually refresh the container application if a new image is available on DockerHub
+4. Scripting Container Application Refresh
+    - Create a `bash` script on your instance that will:
+      - pull the image from your DockerHub repository
+      - kill and remove the previously running container
+      - start a new container with the freshly pulled image
+    - How to test that the script successfully performs its taskings
+    - **LINK to bash script** in repository
+5. Configuring a `webhook` Listener on EC2 Instance
+    - How to install [adnanh's `webhook`](https://github.com/adnanh/webhook) to the EC2 instance
+    - How to verify successful installation
+    - Summary of the `webhook` definition file
+    - How to verify definition file was loaded by `webhook`
+    - How to verify `webhook` is receiving payloads that trigger it
+      - how to monitor logs from running `webhook`
+      - what to look for in `docker` process views
+    - **LINK to definition file** in repository
+6. Configuring a Payload Sender
+    - Justification for selecting GitHub or DockerHub as the payload sender
+    - How to enable your selection to send payloads to the EC2 `webhook` listener
+    - Explain what triggers will send a payload to the EC2 `webhook` listener
+    - How to verify a successful payload delivery
+7. Configure a `webhook` Service on EC2 Instance 
+    - Summary of `webhook` service file contents
+    - How to `enable` and `start` the `webhook` service
+    - How to verify `webhook` service is capturing payloads and triggering bash script
+    - **LINK to service file** in repository
+
+
 
       source ask chatgbt how to end listener on port 9000. "I have a webhook listening on port 9000 i want to end"
       commands
