@@ -49,55 +49,110 @@ ceg3120-cicd-masedagr8 created by GitHub Classroom
 
 1. EC2 Instance Details
     - AMI information
-    - Instance type 
-    - Recommended volume size
-    - Security Group configuration
-    - Security Group configuration justification / explanation
+    - Instance type: `t2.medium`
+    - Recommended volume size: `24 gib`
+    - Security Group configuration: `port 9000,4200,4201,22 source 0.0.0.0
+    - Security Group configuration justification / explanation: ` those are the ports we use`
 2. Docker Setup on OS on the EC2 instance
     - How to install Docker for OS on the EC2 instance
-    - Additional dependencies based on OS on the EC2 instance
-    - How to confirm Docker is installed and that OS on the EC2 instance can successfully run containers
+    -  -`for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done`
+
+
+   
+   -`sudo apt-get update`
+
+    `sudo apt-get install ca-certificates curl`
+
+    `sudo install -m 0755 -d /etc/apt/keyrings`
+
+    `sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc`
+
+    `sudo chmod a+r /etc/apt/keyrings/docker.asc`
+   `the five line above should able to run at once if you like`
+
+   -`sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+   
+   -to verify successful install run `sudo docker run hello-world`
+
 3. Testing on EC2 Instance
-    - How to pull container image from DockerHub repository
-    - How to run container from image 
-      - Note the differences between using the `-it` flag and the `-d` flags and which you would recommend once the testing phase is complete
+    - How to pull container image from DockerHub repository: `docker pull <image-name>`
+    - How to run container from image:
+      ` sudo docker run hello-world`
+      `sudo docker run -it 0919bf7401ef`
+      - Note the differences between using the `-it` flag and the `-d` flags and which you would recommend once the testing phase is complete:`I recommend -it(interactive) because it can be hard to tell whats happening when using -d(background)`
     - How to verify that the container is successfully serving the Angular application
-      - validate from container side
-      - validate from host side
-      - validate from an external connection (your physical system)
+      - validate from container side ` curl http://localhost:80`
+      - validate from host side `curl http://localhost:9000`
+      - validate from an external connection `curl http://98.85.197.27:9000/hooks/hooksid`
     - Steps to manually refresh the container application if a new image is available on DockerHub
+      `docker pull masedagr80ne/ceg3120:latest`
+      `docker ps -a`
+      `docker kill banana`
+      `docker rm banana`
+      `docker run -d -p 9000:80 masedagr80ne/ceg3120:latest`
+
 4. Scripting Container Application Refresh
     - Create a `bash` script on your instance that will:
       - pull the image from your DockerHub repository
       - kill and remove the previously running container
       - start a new container with the freshly pulled image
     - How to test that the script successfully performs its taskings
-    - **LINK to bash script** in repository
+      `inside deployment run "./refresh-it.sh"`
+      `docker images` check was pulled
+      `docker ps -a` check is running
+    - **LINK to bash script** [in repository](https://github.com/WSU-kduncan/ceg3120-cicd-masedagr8/blob/main/project5/deployment/refresh-it.sh)
 5. Configuring a `webhook` Listener on EC2 Instance
     - How to install [adnanh's `webhook`](https://github.com/adnanh/webhook) to the EC2 instance
-    - How to verify successful installation
-    - Summary of the `webhook` definition file
-    - How to verify definition file was loaded by `webhook`
+      sudo apt install webhook
+      sudo system ttl status
+      sudo systemctl status webhook.service
+    - How to verify successful installation `which webhook`
+    - Summary of the `webhook` definition file `json configuration is the file that defines hooks for the webhook`
+    - How to verify definition file was loaded by `webhook` `webhook -hooks deployment/hooks.json -verbose`
     - How to verify `webhook` is receiving payloads that trigger it
-      - how to monitor logs from running `webhook`
-      - what to look for in `docker` process views
-    - **LINK to definition file** in repository
+      - how to monitor logs from running `webhook` `journalctl -u webhook.service -f`
+      - what to look for in `docker` process views ` [webhook] 2025/05/01 17:31:08 [9fb8ee] hooksid hook triggered successfully`
+    - **LINK to definition file** [in repository](https://github.com/WSU-kduncan/ceg3120-cicd-masedagr8/blob/main/project5/deployment/hooks.json)
 6. Configuring a Payload Sender
-    - Justification for selecting GitHub or DockerHub as the payload sender
+    - Justification for selecting GitHub or DockerHub as the payload sender: `I think I understand how to do in github better`
     - How to enable your selection to send payloads to the EC2 `webhook` listener
+      `in setting webhooks, add webhook`
+      payload url `http://98.85.197.279000/hooks/hooksid`
+      `content type application/json`
+      `et me select individual events` (push release)
     - Explain what triggers will send a payload to the EC2 `webhook` listener
+      `when a new push or release happens webhook should send a payload to webhook`
     - How to verify a successful payload delivery
+      `under webhook in setting it will say it was successful`
+      or `check webhook logs` according to chatgbt
 7. Configure a `webhook` Service on EC2 Instance 
     - Summary of `webhook` service file contents
+      `mostly default`
+      added
+      `After=network.target`
+      `Restart=always`
     - How to `enable` and `start` the `webhook` service
+       `sudo systemctl daemon-reload
+       sudo systemctl enable webhook
+       sudo systemctl start webhook
+       sudo systemctl status webhook`
     - How to verify `webhook` service is capturing payloads and triggering bash script
-    - **LINK to service file** in repository
+      `journalctl -u webhook.service -f`
+    - **LINK to service file** [in repository](https://github.com/WSU-kduncan/ceg3120-cicd-masedagr8/blob/main/project5/deployment/webhook.service)
 
 
 
-      source ask chatgbt how to end listener on port 9000. "I have a webhook listening on port 9000 i want to end"
+      source
+      
+      ask chatgbt how to end listener on port 9000. "I have a webhook listening on port 9000 i want to end"
       commands
       sudo lsof -i :9000
       sudo kill -9 PID
-
+ask chatgbt how to verify a successful payload delivery to webhook
+Verify in Logs:
+On your EC2 instance, check the webhook logs to see if the event triggered the execution of your script.
+Example webhook log:
+[webhook] 2025/05/01 16:02:42 [github-webhook] incoming HTTP POST request from <GitHub_IP>
+[webhook] 2025/05/01 16:02:42 [github-webhook] github-webhook matched, triggering deploy.sh
+[webhook] 2025/05/01 16:02:42 [github-webhook] executing /home/ubuntu/ceg3120-
 
