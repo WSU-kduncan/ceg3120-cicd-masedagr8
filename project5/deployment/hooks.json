@@ -1,0 +1,17 @@
+[
+  {
+    "id": "hooksid",
+    "execute-command": "/home/ubuntu/ceg3120-cicd-masedagr8/project5/deployment/refresh-it.sh",
+    "trigger-rule":{
+    	"match":{
+	  "type": "value",
+  	  "parameter": {
+		  "source": "payload",
+		  "name": "repository.repo_name"
+
+		},
+		"value": "WSU-kduncan/ceg3120-cicd-masedagr8"
+	}
+    }
+  }
+]
